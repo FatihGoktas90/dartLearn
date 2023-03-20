@@ -1,3 +1,6 @@
+import 'model/user_model.dart';
+import 'model/user_model_2.dart';
+
 void main(List<String> args) {
   // müşteri adı parası ,yasi
 
@@ -44,10 +47,25 @@ void main(List<String> args) {
   User user1 = User('vb', 15, age: 21, city: 'Ankara', id: '123');
 
   print(user1.name);
+  print('------' * 10);
+
+  if (user1.isSpecial('123')) {
+    user1.money += 5;
+    print('para eklendi');
+    user1.isEmptyId;
+  }
+
+  print('-------------');
 
   User user2 = User('aa', 15, id: '123');
 
   User user3 = User('aa', 15, age: 13, id: '123');
+
+  User2 newUser2 = User2('fatih', 15);
+  newUser2.money += 5;
+
+  //newUser2.toString();
+  print(newUser2.toString());
 
   if (user3.city == null) {
     print('Musteri sehir bilgisini vermemis');
@@ -60,7 +78,7 @@ void main(List<String> args) {
       print('Tebrikler kazandiniz');
     }
   }
-  print(user3.id);
+  //print(user3.id);
 }
 
 int? controlMoney(int? money) {
@@ -72,7 +90,6 @@ int? controlMoney(int? money) {
   // if(money == null || money==0 ){
   //    return null;
   //}
-  
 }
 
 void controlCustomerAge(int value) {
@@ -83,38 +100,5 @@ void controlCustomerAge(int value) {
   }
 }
 
-class User {
-  // ozellikleri neler
-
-  late final String name;
-  late final int money;
-  late final int? age;
-  late final String? city;
-  late final String userCode;
-
-  String id;
-
-  User(String name, int money, {required this.id, int? age, String? city}) {
-    this.name = name;
-    this.money = money;
-    this.age = age;
-    this.city = city;
-    userCode = (city ?? 'ist') + name;
-  }
-}
-
 //----------------
 
-class User2 {
-  // ozellikleri neler
-
-  final String name;
-  final int money;
-  final int? age;
-  final String? city;
-  late final String userCode;
-
-  User2(this.name, this.money, {this.age, this.city}) {
-    userCode = (city ?? 'ist') + name;
-  }
-}
