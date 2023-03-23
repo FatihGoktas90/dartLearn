@@ -20,9 +20,6 @@ abstract class IUser {
   }
 }
 
-
-
-
 class User extends IUser {
   final String name;
   final int money;
